@@ -15,6 +15,17 @@ app.get('/todos',(req,res)=>{
     })
 })
 
+app.get('/todos/sorted',(req,res)=>{
+    connection.query('SELECT * FROM todo_list order by ranking',(err,rows)=>{
+        if(err){
+            console.log(err)
+        } else {
+            res.send(rows)
+        }
+    })
+})
+
+
 app.get('/todos/:id',(req,res)=>{
     connection.query('SELECT * FROM todo_list WHERE id=?',[req.params.id],(err,rows)=>{
         if(err){
