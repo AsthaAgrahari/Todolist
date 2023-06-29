@@ -1,4 +1,4 @@
-
+// Setting connection details
 module.exports={
     HOST:'localhost',
     USER:'root',
